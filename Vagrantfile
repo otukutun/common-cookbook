@@ -8,7 +8,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
-  config.omnibus.chef_version = :latest
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "centos7"
@@ -88,6 +87,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # path, and data_bags path (all relative to this Vagrantfile), and adding
   # some recipes and/or roles.
   #
+  config.omnibus.chef_version = :latest
+
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["./cookbooks", "./site-cookbooks"]
     chef.json = {
@@ -96,9 +97,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       }
     }
     chef.run_list = %w[
+    recipe[yum]
     recipe[yum-epel]
     recipe[nginx]
-    recipe[php-env]
+    recipe[php-env::php55]
     ]
 
 
