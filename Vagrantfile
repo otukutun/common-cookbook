@@ -8,6 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
+  config.omnibus.chef_version = :latest
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "centos7"
@@ -87,13 +88,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # path, and data_bags path (all relative to this Vagrantfile), and adding
   # some recipes and/or roles.
   #
-  config.vm.provision "chef_solo" do |chef|
+  config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["./cookbooks", "./site-cookbooks"]
+    chef.json = {
+      nginx: {
+        env: ["php"]
+      }
+    }
     chef.run_list = %w[
     recipe[yum-epel]
     recipe[nginx]
     recipe[php-env]
     ]
+
 
     # chef.roles_path = "../my-recipes/roles"
     # chef.data_bags_path = "../my-recipes/data_bags"
@@ -101,7 +108,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # chef.add_role "web"
   
     # You may also specify custom JSON attributes:
-    chef.json = { :mysql_password => "foo" }
+    #chef.json = { :mysql_password => "foo" }
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,
