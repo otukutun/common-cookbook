@@ -10,7 +10,7 @@ include_recipe "yum"
 
 package "nginx" do
   action :install
-  options 'enable-repo=epel,remi'
+  options 'enablerepo=epel,remi'
 end
 
 service "nginx" do

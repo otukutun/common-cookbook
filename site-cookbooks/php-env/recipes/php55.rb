@@ -14,10 +14,10 @@
 #  action :create
 #end
 
-%w{php-fpm}.each do |pkg|
+%w{php php-cli php-devel php-fpm}.each do |pkg|
   package pkg do
     action :install
-    options 'enable-repo=epel,remi'
+    options '--enablerepo=epel,remi,remi-php55'
     notifies :restart, "service[php-fpm]"
   end
 end
