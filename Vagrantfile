@@ -98,6 +98,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
     chef.run_list = %w[
     recipe[yum]
+    recipe[repo]
     recipe[nginx]
     recipe[php-env::php55]
     ]

@@ -1,5 +1,5 @@
-yum Cookbook
-============
+php-env Cookbook
+================
 TODO: Enter the cookbook description here.
 
 e.g.
@@ -11,14 +11,14 @@ TODO: List your cookbook requirements. Be sure to include any requirements this 
 
 e.g.
 #### packages
-- `toaster` - yum needs toaster to brown your bagel.
+- `toaster` - php-env needs toaster to brown your bagel.
 
 Attributes
 ----------
 TODO: List your cookbook attributes here.
 
 e.g.
-#### yum::default
+#### php-env::default
 <table>
   <tr>
     <th>Key</th>
@@ -27,7 +27,7 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['yum']['bacon']</tt></td>
+    <td><tt>['php-env']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -36,17 +36,17 @@ e.g.
 
 Usage
 -----
-#### yum::default
+#### php-env::default
 TODO: Write usage instructions for each cookbook.
 
 e.g.
-Just include `yum` in your node's `run_list`:
+Just include `php-env` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[yum]"
+    "recipe[php-env]"
   ]
 }
 ```

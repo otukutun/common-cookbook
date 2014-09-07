@@ -1,11 +1,11 @@
-yum CHANGELOG
-=============
+repo CHANGELOG
+==============
 
-This file is used to list changes made in each version of the yum cookbook.
+This file is used to list changes made in each version of the repo cookbook.
 
 0.1.0
 -----
-- [your_name] - Initial release of yum
+- [your_name] - Initial release of repo
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
