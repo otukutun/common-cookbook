@@ -42,3 +42,18 @@ git "/home/#{node['nodejs']['user']}/.ndenv/plugins/node-build" do
   group node['nodejs']['group']
 end
 
+execute "ndenv install #{node['nodejs']['version']}" do
+  command "/home/#{node['nodejs']['user']}/.ndenv/bin/ndenv install #{node['nodejs']['version']}"
+  user node['nodejs']['user']
+  group node['nodejs']['group']
+  environment 'HOME' => "/home/#{node['nodejs']['user']}"
+  not_if { File.exists?("/home/#{node['nodejs']['user']}/.ndenv/versions/#{node['nodejs']['version']}")}
+end
+
+execute "ndenv global #{node['nodejs']['version']}" do
+  command "/home/#{node['nodejs']['user']}/.ndenv/bin/ndenv global #{node['nodejs']['version']}"
+  user node['nodejs']['user']
+  group node['nodejs']['group']
+  environment 'HOME' => "/home/#{node['nodejs']['user']}"
+end
+
