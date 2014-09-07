@@ -4,6 +4,6 @@
 $ bundle install
 $ berks update
 $ vagrant plugin install vagrant-omnibus
-$ vagant up --provision
+$ vagrant up --provision
 ```
 これでいけるはず。
