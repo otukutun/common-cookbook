@@ -6,6 +6,8 @@ DEPENDENCIES
   repo
     path: site-cookbooks/repo
   yum
+    git: git@github.com:opscode-cookbooks/yum.git
+    revision: dc5e8c43c0281d90ab886174d9d1b4fc564db4a8
 
 GRAPH
   nginx (0.1.0)
