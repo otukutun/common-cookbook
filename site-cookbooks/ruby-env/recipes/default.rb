@@ -32,7 +32,7 @@ end
 
 execute "update bash_profile" do
   command "echo source /home/#{node['ruby-env']['user']}/.bash_profile_ruby >> /home/#{node['ruby-env']['user']}/.bash_profile; chmod 0644 /home/#{node['ruby-env']['user']}/.bash_profile"
-  not_if "grep bash_profile_ruby ~/.bash_profile", :environment => { :'HOME' => "/home/#{node['ruby-env']['user']}" }
+  only_if "grep bash_profile_ruby ~/.bash_profile", :environment => { :'HOME' => "/home/#{node['ruby-env']['user']}" }
 end
 
 directory "/home/#{node['ruby-env']['user']}/.rbenv/plugins" do
