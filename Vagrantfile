@@ -93,7 +93,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.cookbooks_path = ["./cookbooks", "./site-cookbooks"]
     chef.json = {
       nginx: {
-        env: ["php"]
+        env: ["php", "ruby"]
       }
     }
     chef.run_list = %w[
