@@ -23,13 +23,17 @@ end
 
 template ".bash_profile" do
   source ".bash_profile.erb"
-  path "/home/#{node['ruby-env']['user']}/.bash_profile"
+  path "/home/#{node['ruby-env']['user']}/.bash_profile_ruby"
   mode 0644
   owner node['ruby-env']['user']
   group node['ruby-env']['group']
-  not_if "grep rbenv ~/.bash_profile", :environment => { :'HOME' => "/home/#{node['ruby-env']['user']}" }
+  not_if "grep rbenv ~/.bash_profile_ruby", :environment => { :'HOME' => "/home/#{node['ruby-env']['user']}" }
 end
 
+execute "update bash_profile" do
+  command "echo source /home/#{node['ruby-env']['user']}/.bash_profile_ruby >> /home/#{node['ruby-env']['user']}/.bash_profile; chmod 0644 /home/#{node['ruby-env']['user']}/.bash_profile"
+  not_if "grep bash_profile_ruby ~/.bash_profile", :environment => { :'HOME' => "/home/#{node['ruby-env']['user']}" }
+end
 
 directory "/home/#{node['ruby-env']['user']}/.rbenv/plugins" do
   owner node['ruby-env']['user']

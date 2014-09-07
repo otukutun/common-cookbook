@@ -102,6 +102,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     recipe[nginx]
     recipe[php-env::php55]
     recipe[ruby-env]
+    recipe[nodejs]
     ]
 
 
