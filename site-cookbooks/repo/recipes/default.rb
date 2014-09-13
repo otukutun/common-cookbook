@@ -21,6 +21,7 @@ yum_repository 'remi' do
   gpgkey 'http://rpms.famillecollet.com/RPM-GPG-KEY-remi'
   action :create
 end
+
 yum_repository 'remi-php55' do
   description 'Les RPM de remi de PHP 5.5 pour Enterprise Linux 6'
   baseurl 'http://rpms.famillecollet.com/enterprise/6/php55/$basearch/'

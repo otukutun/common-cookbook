@@ -25,7 +25,7 @@ end
 
 execute "update bash_profile" do
   command "echo source /home/#{node['nodejs']['user']}/.bash_profile_node >> /home/#{node['nodejs']['user']}/.bash_profile; chmod 0644 /home/#{node['nodejs']['user']}/.bash_profile; exec $SHELL -l"
-  only_if "grep bash_profile_node ~/.bash_profile", :environment => { :'HOME' => "/home/#{node['nodejs']['user']}" }
+  not_if "grep bash_profile_node ~/.bash_profile", :environment => { :'HOME' => "/home/#{node['nodejs']['user']}" }
 end
 
 directory "/home/#{node['nodejs']['user']}/.ndenv/plugins" do
