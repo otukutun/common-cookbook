@@ -28,3 +28,11 @@ yum_repository 'remi-php55' do
   gpgkey 'http://rpms.famillecollet.com/RPM-GPG-KEY-remi'
   action :create
 end
+
+yum_repository 'rpmforge' do
+  description 'RHEL $releasever - RPMforge.net - dag'
+  mirrorlist 'http://mirrorlist.repoforge.org/el6/mirrors-rpmforge'
+  enabled true
+  gpgcheck true
+  gpgkey 'http://apt.sw.be/RPM-GPG-KEY.dag.txt'
+end
