@@ -107,6 +107,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     recipe[ruby-env]
     recipe[nodejs]
     recipe[mysql]
+    recipe[fluentd]
     ]
 
 
