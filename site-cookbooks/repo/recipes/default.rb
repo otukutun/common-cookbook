@@ -29,6 +29,17 @@ yum_repository 'remi-php55' do
   action :create
 end
 
+# add mysql yum repository
+remote_file "/tmp/mysql-community-release-el6-5.noarch.rpm" do
+  source 'http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm'
+  action :create
+end
+
+rpm_package "mysql-community-release" do
+  source "/tmp/mysql-community-release-el6-5.noarch.rpm"
+  action :install
+end
+
 yum_repository 'rpmforge' do
   description 'RHEL $releasever - RPMforge.net - dag'
   mirrorlist 'http://mirrorlist.repoforge.org/el6/mirrors-rpmforge'

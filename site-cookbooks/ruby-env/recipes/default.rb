@@ -10,7 +10,7 @@ include_recipe 'yum'
 %w{git openssl-devel sqlite-devel}.each do |pkg|
   package pkg do
     action :install
-    options '--enablerepo=epel,remi'
+    options '--enablerepo=epel,remi,rpmforge'
   end
 end
 
