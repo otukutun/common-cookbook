@@ -14,7 +14,7 @@
 #  action :create
 #end
 
-%w{php php-cli php-devel php-mbstring php-pecl-xdebug php-opcache php-mcrypt php-pdo php-fpm}.each do |pkg|
+%w{php php-cli php-devel php-mbstring php-pecl-xdebug php-opcache php-mcrypt php-pdo php-mysqlnd php-fpm}.each do |pkg|
   package pkg do
     action :install
     options '--enablerepo=remi,remi-php55'
